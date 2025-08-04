@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import heroImage from "@/assets/hero-network.jpg";
 import { StatsOverview } from "@/components/StatsOverview";
 import { NodeCard } from "@/components/NodeCard";
 import { NetworkMap } from "@/components/NetworkMap";
@@ -115,24 +116,28 @@ const Index = () => {
       
       <main className="container mx-auto px-6 py-8">
         {/* Hero Section */}
-        <div className="relative mb-12">
+        <div className="relative mb-12 overflow-hidden rounded-2xl">
           <div className="absolute inset-0 bg-gradient-glow opacity-30 blur-3xl"></div>
-          <div className="relative text-center py-16">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="gradient-text">CircleLayer</span>
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-20"
+            style={{ backgroundImage: `url(${heroImage})` }}
+          ></div>
+          <div className="relative text-center py-20 px-8 backdrop-blur-sm bg-background/20 border border-border/20">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
+              <span className="gradient-text animate-glow-pulse">CircleLayer</span>
               <br />
               <span className="text-foreground">Node Network</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-stagger-fade-1">
               Decentralized infrastructure powering the future of Web3. 
               Monitor, manage, and scale your blockchain nodes with confidence.
             </p>
-            <div className="flex items-center justify-center space-x-4">
-              <Button variant="hero" size="hero" className="animate-glow">
+            <div className="flex items-center justify-center space-x-4 animate-stagger-fade-2">
+              <Button variant="hero" size="hero" className="animate-glow hover:animate-float transition-all duration-300">
                 <Plus className="h-5 w-5 mr-2" />
                 Deploy Node
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="hover:scale-105 transition-transform duration-300">
                 <TrendingUp className="h-5 w-5 mr-2" />
                 View Analytics
                 <ArrowUpRight className="h-4 w-4 ml-2" />
@@ -142,12 +147,12 @@ const Index = () => {
         </div>
 
         {/* Stats Overview */}
-        <section className="mb-12">
+        <section className="mb-12 animate-stagger-fade-3">
           <StatsOverview />
         </section>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 animate-stagger-fade-4">
           {/* Network Map */}
           <div className="lg:col-span-2">
             <NetworkMap />

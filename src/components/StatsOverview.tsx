@@ -68,9 +68,12 @@ export const StatsOverview = () => {
         const ChangeIcon = getChangeIcon(stat.changeType);
         
         return (
-          <Card key={index} className="relative overflow-hidden bg-surface border-card-border hover:border-primary/30 transition-all duration-300 group">
+          <Card key={index} className="relative overflow-hidden bg-surface border-card-border hover:border-primary/30 transition-all duration-500 group hover:scale-105 hover:-translate-y-2 animate-fade-in"
+                style={{ animationDelay: `${index * 150}ms` }}>
             {/* Background gradient effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+            {/* Subtle floating animation */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/10 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-all duration-500"></div>
             
             <div className="relative p-6">
               <div className="flex items-center justify-between mb-4">

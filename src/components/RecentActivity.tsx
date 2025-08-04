@@ -97,7 +97,8 @@ export const RecentActivity = () => {
               return (
                 <div 
                   key={activity.id} 
-                  className="flex items-start space-x-4 p-3 rounded-lg hover:bg-muted/20 transition-colors cursor-pointer group"
+                  className="flex items-start space-x-4 p-3 rounded-lg hover:bg-muted/20 transition-all duration-300 cursor-pointer group hover:translate-x-2 animate-fade-in"
+                  style={{ animationDelay: `${activity.id * 100}ms` }}
                 >
                   <div className={`p-2 rounded-lg border ${getStatusColor(activity.status)}`}>
                     <Icon className="h-4 w-4" />

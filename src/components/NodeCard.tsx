@@ -43,9 +43,11 @@ const getStatusColor = (status: string) => {
 
 export const NodeCard = ({ node }: NodeCardProps) => {
   return (
-    <Card className="relative overflow-hidden bg-surface border-card-border hover:border-primary/30 transition-all duration-300 hover:shadow-card group">
+    <Card className="relative overflow-hidden bg-surface border-card-border hover:border-primary/30 transition-all duration-500 hover:shadow-card group hover:scale-105 animate-fade-in">
       {/* Glow effect on hover */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+      {/* Animated background pattern */}
+      <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500 bg-gradient-to-br from-primary via-transparent to-primary-glow"></div>
       
       <div className="relative p-6">
         {/* Header */}
