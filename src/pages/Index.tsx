@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import heroImage from "@/assets/hero-network.jpg";
 import { StatsOverview } from "@/components/StatsOverview";
 import { NodeCard } from "@/components/NodeCard";
@@ -117,31 +118,52 @@ const Index = () => {
       <main className="container mx-auto px-6 py-8">
         {/* Hero Section */}
         <div className="relative mb-12 overflow-hidden rounded-2xl">
-          <div className="absolute inset-0 bg-gradient-glow opacity-30 blur-3xl"></div>
+          <div className="absolute inset-0 bg-gradient-glow opacity-30 blur-3xl animate-pulse"></div>
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-20"
+            className="absolute inset-0 bg-cover bg-center opacity-30"
             style={{ backgroundImage: `url(${heroImage})` }}
           ></div>
-          <div className="relative text-center py-20 px-8 backdrop-blur-sm bg-background/20 border border-border/20">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-slide-up">
-              <span className="gradient-text animate-glow-pulse">CircleLayer</span>
+          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-background/90"></div>
+          <div className="relative text-center py-24 px-8">
+            {/* Floating particles */}
+            <div className="absolute top-16 left-1/4 w-2 h-2 bg-primary/60 rounded-full animate-float"></div>
+            <div className="absolute top-32 right-1/3 w-1 h-1 bg-primary-glow/80 rounded-full animate-ping"></div>
+            <div className="absolute bottom-20 left-1/3 w-1.5 h-1.5 bg-primary/40 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
+            <h1 className="text-5xl md:text-7xl font-bold mb-8 animate-slide-up">
+              <span className="gradient-text animate-glow-pulse drop-shadow-lg">CircleLayer</span>
               <br />
-              <span className="text-foreground">Node Network</span>
+              <span className="text-foreground/90">Node Network</span>
             </h1>
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-stagger-fade-1">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto animate-stagger-fade-1 leading-relaxed">
               Decentralized infrastructure powering the future of Web3. 
-              Monitor, manage, and scale your blockchain nodes with confidence.
+              Monitor, manage, and scale your blockchain nodes with confidence and precision.
             </p>
-            <div className="flex items-center justify-center space-x-4 animate-stagger-fade-2">
-              <Button variant="hero" size="hero" className="animate-glow hover:animate-float transition-all duration-300">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-stagger-fade-2">
+              <Button variant="hero" size="hero" className="animate-glow hover:animate-float transition-all duration-500 shadow-glow">
                 <Plus className="h-5 w-5 mr-2" />
                 Deploy Node
               </Button>
-              <Button variant="outline" size="lg" className="hover:scale-105 transition-transform duration-300">
+              <Button variant="outline" size="lg" className="hover:scale-105 transition-all duration-300 backdrop-blur-sm">
                 <TrendingUp className="h-5 w-5 mr-2" />
                 View Analytics
                 <ArrowUpRight className="h-4 w-4 ml-2" />
               </Button>
+            </div>
+            
+            {/* Trust indicators */}
+            <div className="flex items-center justify-center space-x-8 mt-12 animate-stagger-fade-3">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary">99.9%</div>
+                <div className="text-sm text-muted-foreground">Uptime</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary">1,247</div>
+                <div className="text-sm text-muted-foreground">Active Nodes</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-primary">24/7</div>
+                <div className="text-sm text-muted-foreground">Monitoring</div>
+              </div>
             </div>
           </div>
         </div>
@@ -221,6 +243,8 @@ const Index = () => {
           </div>
         </section>
       </main>
+      
+      <Footer />
     </div>
   );
 };
