@@ -1,6 +1,7 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import heroImage from "@/assets/hero-network.jpg";
+import patternBg from "@/assets/pattern-bg.jpg";
 import { StatsOverview } from "@/components/StatsOverview";
 import { NodeCard } from "@/components/NodeCard";
 import { NetworkMap } from "@/components/NetworkMap";
@@ -117,13 +118,17 @@ const Index = () => {
       
       <main className="container mx-auto px-6 py-8">
         {/* Hero Section */}
-        <div className="relative mb-12 overflow-hidden rounded-2xl">
-          <div className="absolute inset-0 bg-gradient-glow opacity-30 blur-3xl animate-pulse"></div>
+        <div className="relative mb-12 overflow-hidden rounded-3xl border border-primary/20 bg-gradient-to-br from-surface/50 to-surface/30 backdrop-blur-xl shadow-2xl">
+          <div className="absolute inset-0 bg-gradient-glow opacity-40 blur-3xl animate-pulse"></div>
           <div 
-            className="absolute inset-0 bg-cover bg-center opacity-30"
+            className="absolute inset-0 bg-cover bg-center opacity-20"
             style={{ backgroundImage: `url(${heroImage})` }}
           ></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-background/90"></div>
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-10"
+            style={{ backgroundImage: `url(${patternBg})` }}
+          ></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-background/95"></div>
           <div className="relative text-center py-24 px-8">
             {/* Floating particles */}
             <div className="absolute top-16 left-1/4 w-2 h-2 bg-primary/60 rounded-full animate-float"></div>
@@ -175,6 +180,11 @@ const Index = () => {
 
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12 animate-stagger-fade-4">
+          {/* Decorative background elements */}
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            <div className="absolute top-1/4 -left-20 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float"></div>
+            <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-primary-glow/5 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
+          </div>
           {/* Network Map */}
           <div className="lg:col-span-2">
             <NetworkMap />
@@ -187,7 +197,14 @@ const Index = () => {
         </div>
 
         {/* Nodes Section */}
-        <section>
+        <section className="relative">
+          {/* Enhanced background pattern */}
+          <div className="absolute inset-0 -z-10">
+            <div 
+              className="absolute inset-0 opacity-5 bg-cover bg-center"
+              style={{ backgroundImage: `url(${patternBg})` }}
+            ></div>
+          </div>
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-2xl font-bold text-foreground mb-2">Active Nodes</h2>

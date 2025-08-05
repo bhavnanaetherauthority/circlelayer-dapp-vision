@@ -43,11 +43,12 @@ const getStatusColor = (status: string) => {
 
 export const NodeCard = ({ node }: NodeCardProps) => {
   return (
-    <Card className="relative overflow-hidden bg-surface border-card-border hover:border-primary/30 transition-all duration-500 hover:shadow-card group hover:scale-105 animate-fade-in">
-      {/* Glow effect on hover */}
-      <div className="absolute inset-0 bg-gradient-glow opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-      {/* Animated background pattern */}
-      <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500 bg-gradient-to-br from-primary via-transparent to-primary-glow"></div>
+    <Card className="relative overflow-hidden border border-primary/20 bg-gradient-to-br from-card/95 to-surface/80 backdrop-blur-xl hover:border-primary/40 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 group hover:scale-105 animate-fade-in shimmer-effect">
+      {/* Enhanced glow effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-primary-glow/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+      <div className="absolute -top-2 -right-2 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/15 transition-colors duration-500"></div>
+      <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse group-hover:animate-ping"></div>
+      <div className="absolute bottom-4 left-4 w-1 h-1 bg-primary-glow/40 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
       
       <div className="relative p-6">
         {/* Header */}

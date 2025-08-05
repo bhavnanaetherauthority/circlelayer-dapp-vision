@@ -71,20 +71,25 @@ const getStatusColor = (status: string) => {
 
 export const RecentActivity = () => {
   return (
-    <Card className="bg-surface border-card-border">
-      <div className="p-6">
-        <div className="flex items-center justify-between mb-6">
+    <Card className="border border-primary/20 bg-gradient-to-br from-card/90 to-surface/70 backdrop-blur-xl hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 hover:border-primary/40 shimmer-effect">
+      <div className="p-6 relative">
+        <div className="absolute -top-2 -right-2 w-24 h-24 bg-primary/5 rounded-full blur-2xl group-hover:bg-primary/10 transition-colors duration-500"></div>
+        
+        <div className="flex items-center justify-between mb-6 relative z-10">
           <div className="flex items-center space-x-3">
-            <div className="p-2 rounded-lg bg-primary/10">
+            <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300 shadow-lg">
               <Activity className="h-5 w-5 text-primary" />
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-foreground">Recent Activity</h3>
+              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">Recent Activity</h3>
               <p className="text-sm text-muted-foreground">Network events and alerts</p>
+            </div>
+            <div className="ml-4">
+              <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
             </div>
           </div>
           
-          <Button variant="outline" size="sm">
+          <Button variant="outline" size="sm" className="hover:scale-105 transition-transform duration-300">
             <ExternalLink className="h-4 w-4 mr-2" />
             View All
           </Button>
@@ -97,28 +102,31 @@ export const RecentActivity = () => {
               return (
                 <div 
                   key={activity.id} 
-                  className="flex items-start space-x-4 p-3 rounded-lg hover:bg-muted/20 transition-all duration-300 cursor-pointer group hover:translate-x-2 animate-fade-in"
+                  className="flex items-start space-x-4 p-4 rounded-xl hover:bg-gradient-to-r hover:from-muted/40 hover:to-muted/20 transition-all duration-300 cursor-pointer group hover:translate-x-2 hover:scale-105 animate-fade-in border border-transparent hover:border-primary/20"
                   style={{ animationDelay: `${activity.id * 100}ms` }}
                 >
-                  <div className={`p-2 rounded-lg border ${getStatusColor(activity.status)}`}>
-                    <Icon className="h-4 w-4" />
+                  <div className={`p-3 rounded-xl border relative ${getStatusColor(activity.status)} group-hover:scale-110 transition-all duration-300 shadow-lg`}>
+                    <div className="absolute inset-0 rounded-xl animate-ping opacity-0 group-hover:opacity-20 bg-current"></div>
+                    <Icon className="h-4 w-4 relative z-10" />
                   </div>
                   
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                        <h4 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-300">
                           {activity.title}
                         </h4>
-                        <p className="text-sm text-muted-foreground mt-1">
+                        <p className="text-sm text-muted-foreground mt-1 group-hover:text-muted-foreground/80 transition-colors duration-300">
                           {activity.description}
                         </p>
                       </div>
-                      <Badge variant="outline" className="text-xs ml-2 shrink-0">
+                      <Badge variant="outline" className="text-xs ml-2 shrink-0 group-hover:scale-105 transition-transform duration-300">
                         {activity.timestamp}
                       </Badge>
                     </div>
                   </div>
+                  
+                  <div className="w-1 h-12 bg-gradient-to-b from-primary/30 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               );
             })}
