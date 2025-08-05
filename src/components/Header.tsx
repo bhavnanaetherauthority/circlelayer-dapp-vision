@@ -11,9 +11,11 @@ export const Header = () => {
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-3">
               <div className="relative">
-                <div className="h-8 w-8 rounded-lg bg-gradient-primary flex items-center justify-center">
-                  <Network className="h-5 w-5 text-primary-foreground" />
-                </div>
+                <img 
+                  src="/lovable-uploads/29695337-562e-4e66-8226-abd0576ae44c.png" 
+                  alt="CircleLayer Logo" 
+                  className="h-8 w-8 object-contain"
+                />
                 <div className="absolute -inset-1 bg-gradient-primary rounded-lg opacity-20 animate-pulse-slow"></div>
               </div>
               <div>
