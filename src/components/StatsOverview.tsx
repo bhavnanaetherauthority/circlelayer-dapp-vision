@@ -6,7 +6,11 @@ import {
   Zap,
   TrendingUp,
   TrendingDown,
-  Minus
+  Minus,
+  Globe,
+  Shield,
+  Clock,
+  Database
 } from "lucide-react";
 
 const stats = [
@@ -41,6 +45,38 @@ const stats = [
     changeType: "neutral" as const,
     icon: Zap,
     description: "Real-time performance score"
+  },
+  {
+    title: "Global Reach",
+    value: "142",
+    change: "+8",
+    changeType: "increase" as const,
+    icon: Globe,
+    description: "Countries with active nodes"
+  },
+  {
+    title: "Security Score",
+    value: "99.2%",
+    change: "+0.1%",
+    changeType: "increase" as const,
+    icon: Shield,
+    description: "Network security rating"
+  },
+  {
+    title: "Avg Block Time",
+    value: "2.3s",
+    change: "-0.2s",
+    changeType: "increase" as const,
+    icon: Clock,
+    description: "Average block confirmation"
+  },
+  {
+    title: "Data Throughput",
+    value: "47.8 MB/s",
+    change: "+5.2 MB/s",
+    changeType: "increase" as const,
+    icon: Database,
+    description: "Network data processing"
   }
 ];
 
