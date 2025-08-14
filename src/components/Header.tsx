@@ -31,11 +31,11 @@ export const Header = () => {
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <a href="#" className="text-sm font-medium text-foreground hover:text-cyan-400 transition-colors duration-300">
+            <a href="/" className="text-sm font-medium text-foreground hover:text-cyan-400 transition-colors duration-300">
               Dashboard
             </a>
-            <a href="#" className="text-sm font-medium text-muted-foreground hover:text-cyan-400 transition-colors duration-300">
-              Nodes
+            <a href="/explore" className="text-sm font-medium text-muted-foreground hover:text-cyan-400 transition-colors duration-300">
+              Explore
             </a>
             <a href="#" className="text-sm font-medium text-muted-foreground hover:text-cyan-400 transition-colors duration-300">
               Validators
