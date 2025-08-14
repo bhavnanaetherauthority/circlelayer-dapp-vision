@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Zap, Shield, TrendingUp, Globe, Code, Rocket, Users, Bot } from "lucide-react";
+import { ArrowRight, Zap, Shield, TrendingUp, Globe, Code, Rocket, Users, Bot, Sparkles, Star } from "lucide-react";
 
 const Explore = () => {
   const trendingProjects = [
@@ -86,40 +86,62 @@ const Explore = () => {
       
       {/* Hero Section */}
       <section className="relative py-32 px-4 overflow-hidden">
+        {/* Animated background layers */}
         <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-secondary/20" />
-        <div className="absolute inset-0 bg-[url('/src/assets/pattern-bg.jpg')] opacity-10" />
+        <div className="absolute inset-0 bg-[url('/src/assets/pattern-bg.jpg')] opacity-10 animate-pulse" />
+        
+        {/* Floating elements */}
+        <div className="absolute top-20 left-20 w-20 h-20 bg-primary/10 rounded-full blur-xl animate-[float_6s_ease-in-out_infinite]" />
+        <div className="absolute top-40 right-32 w-16 h-16 bg-secondary/10 rounded-full blur-xl animate-[float_8s_ease-in-out_infinite_reverse]" />
+        <div className="absolute bottom-32 left-1/4 w-24 h-24 bg-accent/10 rounded-full blur-xl animate-[float_7s_ease-in-out_infinite]" />
         
         <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="text-6xl md:text-8xl font-bold mb-8">
-            <span className="text-primary">AI-First.</span>
-            <br />
-            <span className="text-yellow-400">Low Latency.</span>
-            <br />
-            <span className="text-foreground">All in One Network.</span>
-          </h1>
+          {/* Enhanced title with gradient text and sparkle effects */}
+          <div className="relative mb-8">
+            <h1 className="text-6xl md:text-8xl font-bold animate-fade-in">
+              <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent animate-pulse">
+                AI-First.
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-600 bg-clip-text text-transparent">
+                Low Latency.
+              </span>
+              <br />
+              <span className="text-foreground relative">
+                All in One Network.
+                <Sparkles className="absolute -top-2 -right-8 w-8 h-8 text-primary animate-pulse" />
+              </span>
+            </h1>
+            
+            {/* Floating stars */}
+            <Star className="absolute top-10 left-20 w-6 h-6 text-primary/50 animate-[float_4s_ease-in-out_infinite]" />
+            <Star className="absolute top-20 right-16 w-4 h-4 text-secondary/50 animate-[float_5s_ease-in-out_infinite_reverse]" />
+          </div>
           
-          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto animate-fade-in animation-delay-300">
             Experience the future of blockchain with CircleLayer's revolutionary network architecture
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-            <Button variant="default" size="lg" className="text-lg px-8">
-              Quick Start <ArrowRight className="ml-2 w-5 h-5" />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-in animation-delay-500">
+            <Button variant="hero" size="lg" className="text-lg px-8 group hover-scale">
+              Quick Start 
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button variant="outline" size="lg" className="text-lg px-8">
+            <Button variant="outline" size="lg" className="text-lg px-8 hover-scale">
               Get CIRCLE
             </Button>
           </div>
           
-          {/* AI Search Bar */}
-          <div className="max-w-2xl mx-auto">
-            <div className="relative bg-card/50 backdrop-blur border rounded-full p-6">
+          {/* Enhanced AI Search Bar */}
+          <div className="max-w-2xl mx-auto animate-fade-in animation-delay-700">
+            <div className="relative bg-card/70 backdrop-blur-xl border border-primary/20 rounded-full p-6 shadow-2xl hover:shadow-primary/10 transition-all duration-500 hover:scale-105">
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 rounded-full" />
               <input 
                 type="text" 
                 placeholder="How to deploy a smart contract on CircleLayer?" 
-                className="w-full bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-lg"
+                className="w-full bg-transparent text-foreground placeholder:text-muted-foreground outline-none text-lg relative z-10"
               />
-              <Button size="sm" className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full">
+              <Button size="sm" className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full z-10 glow">
                 <Bot className="w-4 h-4 mr-2" />
                 Ask AI
               </Button>
@@ -140,22 +162,32 @@ const Explore = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {trendingProjects.map((project, index) => (
-              <Card key={index} className="group cursor-pointer hover:scale-105 transition-all duration-300 overflow-hidden">
-                <div className={`h-48 ${project.color} relative`}>
+              <Card key={index} className="group cursor-pointer hover:scale-105 hover:shadow-2xl hover:shadow-primary/20 transition-all duration-500 overflow-hidden border-0 bg-gradient-to-b from-card/50 to-card/80 backdrop-blur-sm">
+                <div className={`h-48 ${project.color} relative overflow-hidden`}>
+                  {/* Gradient overlay for better image effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10" />
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-full object-cover mix-blend-overlay"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <Badge className="absolute top-4 left-4 bg-black/50 text-white">
+                  <Badge className="absolute top-4 left-4 bg-black/70 text-white backdrop-blur-sm z-20 hover-scale">
                     {project.badge}
                   </Badge>
+                  
+                  {/* Floating sparkle effect */}
+                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20">
+                    <Sparkles className="w-6 h-6 text-white animate-pulse" />
+                  </div>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
+                <CardHeader className="relative">
+                  {/* Subtle glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 rounded-b-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300 relative z-10">
                     {project.title}
                   </CardTitle>
-                  <CardDescription className="text-base">
+                  <CardDescription className="text-base relative z-10">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
@@ -175,12 +207,16 @@ const Explore = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300">
+              <Card key={index} className="text-center hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 group hover-scale border-0 bg-gradient-to-b from-card to-card/50 backdrop-blur-sm">
                 <CardHeader>
-                  <div className="mx-auto w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-4">
-                    {feature.icon}
+                  <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-2xl flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-300 relative overflow-hidden">
+                    {/* Glowing effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative z-10">
+                      {feature.icon}
+                    </div>
                   </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl group-hover:text-primary transition-colors duration-300">{feature.title}</CardTitle>
                   <CardDescription className="text-base">
                     {feature.description}
                   </CardDescription>
@@ -201,21 +237,24 @@ const Explore = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {ecosystemProjects.map((project, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 cursor-pointer">
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary">{project.category}</Badge>
-                    <Users className="w-4 h-4 text-muted-foreground" />
+              <Card key={index} className="group hover:shadow-xl hover:shadow-primary/10 transition-all duration-500 cursor-pointer hover-scale border-0 bg-gradient-to-b from-card/70 to-card/30 backdrop-blur-sm">
+                <CardHeader className="relative">
+                  {/* Animated background glow */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  
+                  <div className="flex items-center justify-between mb-2 relative z-10">
+                    <Badge variant="secondary" className="group-hover:bg-primary/20 transition-colors duration-300">{project.category}</Badge>
+                    <Users className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
                   </div>
-                  <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                  <CardTitle className="text-lg group-hover:text-primary transition-colors duration-300 relative z-10">
                     {project.title}
                   </CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
+                  <CardDescription className="relative z-10">{project.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex items-center justify-between">
+                <CardContent className="relative">
+                  <div className="flex items-center justify-between relative z-10">
                     <span className="text-sm text-muted-foreground">{project.users} users</span>
-                    <TrendingUp className="w-4 h-4 text-green-500" />
+                    <TrendingUp className="w-4 h-4 text-green-500 group-hover:scale-110 transition-transform duration-300" />
                   </div>
                 </CardContent>
               </Card>
